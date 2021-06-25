@@ -21,11 +21,12 @@ class ConsolasController extends Controller
         $consolas = Consola::all();
         return $consolas;
     }
-    public function crearConsolas(){
+    public function crearConsolas(Request $request){
+        $input = $request->all();
         $consola = new Consola();
-        $consola->nombre = "Nintendo Switch";
-        $consola->marca = "Nintendo";
-        $consola->anio = 2015;
+        $consola->nombre = $input["nombre"];
+        $consola->marca = $input["marca"];
+        $consola->anio = $input["anio"];
 
         $consola->save();
         return $consola;
