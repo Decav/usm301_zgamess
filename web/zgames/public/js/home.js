@@ -10,7 +10,11 @@ const cargarMarcas = async() =>{
         marcaSelect.appendChild(option);
     });
 };
-cargarMarcas();
+
+document.addEventListener("DOMContentLoaded" ,()=>{
+    cargarMarcas();
+});
+
 
 
 
@@ -26,5 +30,6 @@ document.querySelector("#registrar-btn").addEventListener("click", async() =>{
 
     
     let resultado = await crearConsolas(consola);
-    Swal.fire("Consola creada", "Consola creada exitosamente", "success");
+    await Swal.fire("Consola creada", "Consola creada exitosamente", "success");
+    window.location.href = "ver_consola";
 });
