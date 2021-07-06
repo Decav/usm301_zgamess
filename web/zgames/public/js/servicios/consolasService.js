@@ -18,3 +18,16 @@ const crearConsolas = async(consola)=>{
     return respuesta.data;
 };
 
+const eliminarConsola = async(id)=>{
+    try{
+        let respuesta = await axios.post("api/consolas/delete", {id},{
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        return respuesta.data == "ok";
+    }catch(e){
+        return false;
+    }
+    
+}
