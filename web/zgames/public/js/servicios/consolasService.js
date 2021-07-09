@@ -1,8 +1,14 @@
 //Operaciones tipicas para comunicarse con el controlador
 
 //getConsolas
-const getConsolas = async()=>{
+const getConsolas = async(filtro ="todos")=>{
     let respuesta = await axios.get("api/consolas/get");
+    if(filtro == "todos"){
+        respuesta = await axios.get("api/consolas/get");
+
+    }else{
+        respuesta = await axios.get(`api/consolas/filtrar?filtro=${filtro}`);
+    }
     return respuesta.data;
 
 };

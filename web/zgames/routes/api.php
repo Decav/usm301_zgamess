@@ -18,9 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get("marcas/get" ,[ConsolasController::class, "getmarcas"]);
 
 Route::get("consolas/get",[ConsolasController::class, "getConsolas"]);
+
+Route::get("consolas/filtrar",[ConsolasController::class, "filtrarConsolas"]);
 
 Route::post("consolas/post",[ConsolasController::class, "crearConsolas"]);
 
