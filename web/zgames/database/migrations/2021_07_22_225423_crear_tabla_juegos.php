@@ -16,6 +16,7 @@ class CrearTablaJuegos extends Migration
         Schema::create('juegos', function (Blueprint $table) {
             $table->id();
             $table->string("nombre",100);
+            $table->date("fecha_lanzamiento");
             $table->string("descripcion",200);
             $table->tinyInteger("apto_ninios")->default(0);
             $table->integer("precio")->unsigned();

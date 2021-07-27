@@ -17,7 +17,7 @@ class JuegosController extends Controller
     public function getJuegos(){
         return Juego::all();
     }
-    public function save(){
+    public function save(Request $request){
         $input = $request->all();
         $nombre = $input["nombre"];
         $fecha = $input["fechaLanzamiento"];
@@ -33,6 +33,8 @@ class JuegosController extends Controller
         $juego->apto_ninios = $apto;
         $juego->precio = $precio;
         $juego->consola_id = $consolaId;
+        $juego->save();
+        return $juego;
     }
     public function remove(Request $request){
         $input = $request->all();
